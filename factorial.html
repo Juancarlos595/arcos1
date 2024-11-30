@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Factorial</title>
+    <script>
+        function calcularFactorial() {
+            var numero = parseInt(document.getElementById("numero").value);
+            var resultado = factorial(numero);
+            document.getElementById("resultado1").innerText = "El factorial de " + numero + " es " + resultado;
+        }
+
+        function factorial(n) {
+            if (n < 0) {
+                return "No definido para números negativos";
+            } else if (n === 0) {
+                return 1;
+            } else {
+                var resultado1 = 1;
+                for (var i = 1; i <= n; i++) {
+                    resultado1 *= i;
+                }
+                return resultado1;
+            }
+        }
+
+        function calcularFibonacci() {
+            var numero = parseInt(document.getElementById("numero").value);
+            var secuencia = fibonacci(numero);
+            document.getElementById("resultado2").innerText = "La secuencia de Fibonacci hasta " + numero + " es: " + secuencia.join(', ');
+        }
+
+        function fibonacci(n) {
+             var secuencia = [0, 1];
+            for (var i = 2; i < n; i++) {
+                secuencia[i] = secuencia[i - 1] + secuencia[i - 2];
+            }
+            return secuencia.slice(0, n);}
+           
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Factorial</h1>
+    <label for="numero">Introduce un número:</label>
+    <input type="number" id="numero" name="numero">
+    <button onclick="calcularFactorial()">Calcular Factorial</button>
+    <p id="resultado1"></p>
+
+<hr>
+<h1>Calculadora de Fibonacci</h1>
+<label for="numero">Introduce un número:</label>
+<input type="number" id="numero" name="numero">
+<button onclick="calcularFibonacci()">Calcular Fibonacci</button>
+<p id="resultado2"></p>
+
+
+</body>
+</html> 
